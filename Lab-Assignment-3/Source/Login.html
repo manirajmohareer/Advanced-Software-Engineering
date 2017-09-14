@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function validations()
+        { if(localStorage) {
+            form = document.forms["loguser"];
+            var yname= form["dsername"].value;
+            var name = localStorage.getItem("xname");
+            var x    = localStorage.getItem("pname");
+            var y    = form["password"].value;
+            if (yname == name && x==y) {
+                return true;
+            } else{
+                alert("check login details");
+                return false;
+            }
+        }
+        }
+    </script>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="998192548517-fhcu2p81e02jqjrejsbi1pkbj455j736.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=129279684472279";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '{your-app-id}',
+            cookie     : true,
+            xfbml      : true,
+            version    : '{latest-api-version}'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<script>
+    function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+        console.log('Full Name: ' + profile.getName());
+        console.log('Given Name: ' + profile.getGivenName());
+        console.log('Family Name: ' + profile.getFamilyName());
+        console.log("Image URL: " + profile.getImageUrl());
+        console.log("Email: " + profile.getEmail());
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+        console.log("ID Token: " + id_token);
+    };
+</script>
+<div id="wrapper">
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                Login using Social Media
+            </h1>
+            <nav>
+                //<a href="#"></a>
+                <a href="Signup.html">New User</a>
+            </nav>
+        </div>
+    </header>
+    <!-- /header -->
+    <div id="main">
+        <div id="content">
+            <section class="color">
+                <div class="container">
+                    <h1><centre></centre></h1>
+                    <form name="loguser"  method="post" action="home.html" onsubmit="return validations()">
+                        <p class="semi-transparent-button1">Username</p><br>
+                        <input type="text" name="dsername" class="semi-transparent-button2">
+                        <br>
+                        <p class="semi-transparent-button1">Password</p><br>
+                        <input type="password" name="password" class="semi-transparent-button2" >
+                        <br>
+                        <input type="submit" value="Login" class="semi-transparent-button1" href="translate.html">
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div><!-- #main -->
+    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+</div><!-- /#wrapper -->
+</body>
+</html>
