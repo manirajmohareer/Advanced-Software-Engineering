@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script>
+        function validation()
+        {
+            if (localStorage) {
+                form = document.forms["regform"];
+                var nname = form["password"].value;
+                var yname = form["username"].value;
+                var ename = form["email"].value;
+                //name validation
+                localStorage.setItem('xname', yname);
+                localStorage.setItem('lname', ename);
+                localStorage.setItem('pname', nname);
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="wrapper">
+    <header>
+        <div class="container clearfix">
+            <h1 id="logo">
+                Register Here
+            </h1>
+        </div>
+    </header>
+    <!-- /header -->
+    <div id="main">
+        <div id="content">
+            <section class="color">
+                <div class="container">
+                    <form name="regform" method="post" action="#"  onsubmit="return validation()">
+                        Firstname<br>
+                        <input type="text" name="firstname">
+                        <br>
+                        Lastname<br>
+                        <input type="text" name="lastname">
+                        <br>
+                        Username<br>
+                        <input type="text" name="username">
+                        <br>
+                        Password<br>
+                        <input type="password" name="password">
+                        <br>
+                        Confirm Password<br>
+                        <input type="password" name="cpassword">
+                        <br>
+                        E-mail<br>
+                        <input type="text" name="email">
+                        <br><br>
+                        <input type="submit" value="Signup" class="semi-transparent-button2">
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div><!-- #main -->
+</div><!-- /#wrapper -->
+</body>
+</html>
+
