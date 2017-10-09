@@ -1,0 +1,9 @@
+{
+  "name": "LS6",
+  "app_id": "",
+  "type": "ionic1",
+  "integrations": {
+    "gulp": {},
+    "cordova": {}
+  }
+}
